@@ -1,0 +1,73 @@
+﻿<form name="myForm" ng-submit="myForm.$valid && SaveDiscussion();">
+    <div class="form-horizontal">
+        <a ng-href="#listdiscussions">List Discussions</a>
+        <hr />
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Observer:
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" required name="Observer" ng-model="discussionDetails.Observer" ng-disabled="DisableControls();" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Date Of Discussion:
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" required name="DateOfDiscussion" id="datepicker" onkeypress="return false;"
+                       ng-model="discussionDetails.FormattedDateOfDiscussion" ng-disabled="DisableControls();" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Location:
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" required name="Location" ng-model="discussionDetails.Location" ng-disabled="DisableControls();" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Colleague Name:
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" required name="ColleagueName" ng-model="discussionDetails.ColleagueName" ng-disabled="DisableControls();" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Subject:
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" required name="SubjectOfDiscussion" ng-model="discussionDetails.SubjectOfDiscussion" ng-disabled="DisableControls();" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Outcome:
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" required name="Outcome" ng-model="discussionDetails.Outcome" ng-disabled="DisableControls();" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="Submit" ng-disabled="DisableControls();" value="Submit" class="btn btn-default" />
+                <input type="button" value="Back to Discussions" ng-click="BackToDiscussionList();" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function () {
+        $("#datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+    });
+    </script>
+</form>
+

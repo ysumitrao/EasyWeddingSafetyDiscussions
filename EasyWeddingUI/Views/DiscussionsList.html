@@ -1,0 +1,42 @@
+﻿<div>
+    <a ng-href="#adddiscussion">Add Discussion</a>
+</div>
+<table class="table">
+    
+    <tr>
+        <th>Observer</th>
+        <th>Date Of Discussion</th>
+        <th>Location Of Discussion</th>
+        <th>Discussion With</th>
+        <th>Discussion Subject</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>   
+    <tr ng-repeat="discussion in DiscussionsList">
+        <td>
+            {{discussion.Observer}}
+        </td>
+        <td>
+            {{discussion.FormattedDateOfDiscussion}}
+        </td>
+        <td>
+            {{discussion.Location}}
+        </td>
+        <td>
+            {{discussion.ColleagueName}}
+        </td>
+        <td>
+            {{discussion.SubjectOfDiscussion}}
+        </td>
+        <td>
+            <a href="javascript:void(0);" ng-click="ViewDiscussion(discussion.DiscussionId)">View Details</a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" ng-click="EditDiscussion(discussion.DiscussionId)">Edit</a>
+        </td>
+        <td>
+            <a href="javascript:void(0);" ng-click="DeleteDiscussion(discussion.DiscussionId)" confirmation-needed="Are you sure you want to delete the Discussion?">Delete</a>
+        </td>
+    </tr>
+</table>
