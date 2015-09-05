@@ -25,7 +25,16 @@ function discussionsAddEditController($scope, $http, $location, $routeParams) {
     };
 
     $scope.SaveDiscussion = function () {
-        $scope.discussionDetails.DateOfDiscussion = new Date($scope.discussionDetails.FormattedDateOfDiscussion);
+        var dateOfDiscussionArr = $scope.discussionDetails.FormattedDateOfDiscussion.split('-');
+        var dateOfDiscussion = '';
+        if (dateOfDiscussionArr.length == 3) {
+            dateOfDiscussion = dateOfDiscussionArr[1] + '/' + dateOfDiscussionArr[0] + '/' + dateOfDiscussionArr[2];
+        }
+        else {
+            dateOfDiscussion = new Date($scope.discussionDetails.FormattedDateOfDiscussion);
+        }
+        
+        $scope.discussionDetails.DateOfDiscussion = dateOfDiscussion;
         if (mode === "edit") {
             $http.put('/api/DiscussionsList', $scope.discussionDetails).success(function (data) {
                 $location.path("/");
